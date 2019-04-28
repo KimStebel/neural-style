@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-docker run -v /home/kim/:/kim -ti kimstebel/style-transfer
+docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi -v /home/kim/:/kim -ti kimstebel/style-transfer
