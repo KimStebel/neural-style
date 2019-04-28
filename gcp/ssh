@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source common
+
+gcloud compute ssh $INSTANCE_NAME --zone=$ZONE

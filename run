@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+
+docker run -v /home/kim/:/kim -ti kimstebel/style-transfer

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source /torch/install/bin/torch-activate
+th neural_style.lua -gpu -1 "$@"
+
+#-content_image /images/flower.jpg -style_image /images/giger.jpg -output_image /kim/out.png

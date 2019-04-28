@@ -1,0 +1,2 @@
+export ZONE="us-east1-d"
+export INSTANCE_NAME="tensorflow-gpu-1"
