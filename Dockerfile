@@ -1,5 +1,6 @@
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 
+ENV TORCH_NVCC_FLAGS="-D__CUDA_NO_HALF_OPERATORS__"
 RUN apt-get update
 RUN apt-get install -y apt-utils
 RUN apt-get upgrade -y
