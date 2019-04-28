@@ -16,5 +16,6 @@ RUN apt-get install -y libprotobuf-dev protobuf-compiler
 RUN bash -c "source /torch/install/bin/torch-activate ; luarocks install loadcaffe"
 COPY images /images
 WORKDIR /app
+RUN bash -c "echo -e '\nsource /torch/install/bin/torch-activate' >>/etc/profile"
 
 CMD bash
