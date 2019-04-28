@@ -12,14 +12,11 @@ RUN git clone https://github.com/torch/distro.git /torch --recursive
 WORKDIR /torch
 RUN apt-get install -y sudo
 RUN bash install-deps
-RUN apt-get remove -y cmake
-WORKDIR /
-RUN wget https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-Linux-x86_64.sh
-RUN bash cmake-3.14.3-Linux-x86_64.sh --skip-license
-WORKDIR /torch
 RUN bash install.sh
 RUN apt-get install -y libprotobuf-dev protobuf-compiler
 RUN bash -c "source /torch/install/bin/torch-activate ; luarocks install loadcaffe"
+RUN bash -c "source /torch/install/bin/torch-activate ; luarocks install cutorch"
+RUN bash -c "source /torch/install/bin/torch-activate ; luarocks install cunn"
 COPY images /images
 WORKDIR /app
 RUN bash -c "echo -e '\nsource /torch/install/bin/torch-activate' >>/etc/profile"
