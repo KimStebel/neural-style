@@ -2,4 +2,12 @@
 
 set -euo pipefail
 
-docker run --runtime=nvidia --rm -v /home/kim/:/kim -ti kimstebel/style-transfer "$@"
+. common
+
+gcloud compute scp ~/repos/neural-style/images/nata1.jpeg $INSTANCE_NAME:/home/kimstebel/content.jpg
+gcloud compute scp ~/repos/neural-style/images/portrait-ivan-aivazovsky.jpg $INSTANCE_NAME:/home/kimstebel/style.jpg
+gcloud compute scp ~/repos/neural-style/th-script $INSTANCE_NAME:/home/kimstebel/th-script
+gcloud compute ssh $INSTANCE_NAME --command ./th-script
+gcloud compute scp $INSTANCE_NAME:/home/kimstebel/out.jpg ~/out.jpg
+
+

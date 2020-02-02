@@ -6,3 +6,4 @@ out*.png
 *.caffemodel
 app/models/
 !app/models/download_models.sh
+images
