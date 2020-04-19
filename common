@@ -1,2 +1,17 @@
-export ZONE="us-east1-d"
+export ZONE="us-east1-b"
 export INSTANCE_NAME="tensorflow-gpu-1"
+gcloud config set compute/zone "$ZONE"
+
+# zones with hardware available
+# asia-east1-a
+# asia-east1-c
+# australia-southeast1-c
+# us-central1-c
+# us-central1-f
+# us-east1-b
+# us-east1-c
+# us-west1-a
+# us-west1-b
+# europe-west1-b
+# europe-west1-d
+# europe-west4-a

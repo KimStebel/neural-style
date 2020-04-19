@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+CONTENT_WEIGHT='5e0' # '5e0'
+STYLE_WEIGHT='1e2' # 1e2
+ORIGINAL_COLORS='0' # 0
+IMAGE_SIZE='1024' # 512
+
 docker run --runtime=nvidia --rm -v "$HOME:/kim" kimstebel/style-transfer \
   /torch/install/bin/th neural_style.lua \
     -style_image /kim/style.jpg \
@@ -10,9 +15,9 @@ docker run --runtime=nvidia --rm -v "$HOME:/kim" kimstebel/style-transfer \
     -print_iter 200 \
     -save_iter 0 \
     -backend nn \
-    -image_size 512 \
-    -style_scale 10.0 \
-    -original_colors 1 \
-    -content_weight 5e0 \
-    -style_weight 1e2 \
+    -image_size "${IMAGE_SIZE}" \
+    -style_scale 1.0 \
+    -original_colors "${ORIGINAL_COLORS}" \
+    -content_weight "${CONTENT_WEIGHT}" \
+    -style_weight "${STYLE_WEIGHT}" \
     -tv_weight 1e-3
